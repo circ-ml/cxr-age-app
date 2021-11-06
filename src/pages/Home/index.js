@@ -1,6 +1,4 @@
-import { Fragment, useState } from "react";
-import { Popover, Transition } from "@headlessui/react";
-import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import { useState } from "react";
 import { InformationCircleIcon } from "@heroicons/react/solid";
 import Upload from "../../components/Upload";
 

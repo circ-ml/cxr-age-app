@@ -1,7 +1,6 @@
-import { Fragment, useState } from "react";
-import { Popover, Transition } from "@headlessui/react";
+import { useState } from "react";
 import { ExclamationIcon } from "@heroicons/react/solid";
-import { MailIcon, MenuIcon, PhoneIcon, XIcon } from "@heroicons/react/outline";
+import { MailIcon, PhoneIcon } from "@heroicons/react/outline";
 
 export default function Contact({ contact }) {
   const [firstName, setFirstName] = useState("");
