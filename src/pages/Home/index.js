@@ -1,3 +1,4 @@
+import sampleImage from "./sample-image.png";
 import { useState } from "react";
 import { InformationCircleIcon } from "@heroicons/react/solid";
 import Upload from "../../components/Upload";
@@ -80,7 +81,7 @@ export default function Home() {
           </p>
           <img
             className="rounded w-full h-auto"
-            src="http://cxrage.org/bootstrap-5.0.0-beta2-dist/samplecxrimage.png"
+            src={sampleImage}
             alt="CXR Example"
           />
         </div>
