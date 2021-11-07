@@ -63,5 +63,15 @@
   <body>
     <noscript>Please enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+
+    <!-- netlify form handling -->
+    <form name="contact" netlifydata-netlify="true" hidden>
+      <input type="text" name="firstName" />
+      <input type="text" name="lastName" />
+      <input type="text" name="email" />
+      <input type="text" name="phone" />
+      <input type="text" name="subject" />
+      <textarea name="message"></textarea>
+    </form>
   </body>
 </html>
