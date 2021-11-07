@@ -27,12 +27,12 @@ export default function UploadPage({
                 PHI. The model was also trained on images that were similar in
                 appearance.
               </p>
-              <p className="mt-2 text-blue-700">
+              {/* <p className="mt-2 text-blue-700">
                 <strong>
-                  Patient data and images are not stored on our cloud server or
-                  elsewhere.
+                  Patient data and images are not permanently stored on our
+                  cloud server or elsewhere.
                 </strong>
-              </p>
+              </p> */}
             </div>
           </div>
         </div>

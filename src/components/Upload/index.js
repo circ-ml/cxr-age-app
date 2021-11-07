@@ -5,6 +5,8 @@ import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import FilePondPluginFileValidateSize from "filepond-plugin-image-validate-size";
 import FilePondPluginFileEncode from "filepond-plugin-file-encode";
 import FilePondPluginImageResize from "filepond-plugin-image-resize";
+import FilePondPluginFileValidateType from "filepond-plugin-file-validate-type";
+import FilePondPluginImageTransform from "filepond-plugin-image-transform";
 
 import "filepond/dist/filepond.min.css";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
@@ -14,7 +16,9 @@ registerPlugin(
   FilePondPluginFileValidateSize,
   FilePondPluginImagePreview,
   FilePondPluginFileEncode,
-  FilePondPluginImageResize
+  FilePondPluginImageResize,
+  FilePondPluginFileValidateType,
+  FilePondPluginImageTransform
 );
 
 export default function Upload({ onUploadComplete }) {
@@ -22,6 +26,7 @@ export default function Upload({ onUploadComplete }) {
   return (
     <div className="relative rounded-md bg-gray-100">
       <FilePond
+        acceptedFileTypes={["image/png"]}
         files={files}
         onupdatefiles={setFiles}
         allowMultiple={false}
@@ -38,9 +43,10 @@ export default function Upload({ onUploadComplete }) {
           }
         }}
         imageResizeTargetWidth={500}
-        imageResizeTargetHeight={400}
+        imageResizeTargetHeight={500}
         imageResizeMode="contain"
-        imageCropAspectRatio={"5:4"}
+        imageCropAspectRatio={1}
+        imageTransformClientTransforms={["resize", "crop"]}
       />
       <style>{`
       .filepond--credits { display: none; }
