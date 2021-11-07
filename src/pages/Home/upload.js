@@ -21,7 +21,7 @@ export default function UploadPage({
           <div className="ml-3 flex-1 md:flex md:justify-between">
             <div>
               <p className="text-blue-700">
-                Before uploading the chest XRay, please ensure that all
+                Before uploading the chest x-ray, please ensure that all
                 protected health information is removed and the image is
                 anonymized. We suggest adding black boxes to the image to remove
                 PHI. The model was also trained on images that were similar in
