@@ -204,16 +204,6 @@ export default function Contact({ contact }) {
           </p>
           <dl className="mt-8 space-y-6">
             <dt>
-              <span className="sr-only">Phone number</span>
-            </dt>
-            <dd className="flex text-base text-blue-50">
-              <PhoneIcon
-                className="flex-shrink-0 w-6 h-6 text-blue-200"
-                aria-hidden="true"
-              />
-              <span className="ml-3">{contact.phone}</span>
-            </dd>
-            <dt>
               <span className="sr-only">Email</span>
             </dt>
             <dd className="flex text-base text-blue-50">
