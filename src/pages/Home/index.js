@@ -3,7 +3,7 @@ import Loader from "../../components/Loader";
 import Results from "../../components/Results";
 import UploadPage from "./upload";
 
-const PROCESS_IMAGE_URL = "http://cxrage.org/process-image.php";
+const PROCESS_IMAGE_URL = "https://api.cxrage.org/process-image.php";
 
 export default function Home() {
   const [imageURL, setImageURL] = useState("");

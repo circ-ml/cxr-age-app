@@ -4,7 +4,7 @@ import Loader from "../../components/Loader";
 import ResultsComponent from "../../components/Results";
 
 const makeResultsURL = (requestId) =>
-  `http://cxrage.org/results/${requestId}.json`;
+  `https://api.cxrage.org/results/${requestId}.json`;
 
 export default function Results() {
   const [results, setResults] = useState(null);

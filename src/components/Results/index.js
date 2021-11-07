@@ -8,7 +8,7 @@ import {
 } from "@heroicons/react/outline";
 import React from "react";
 
-const DELETE_RESULT_URL = "http://cxrage.org/remove-result.php";
+const DELETE_RESULT_URL = "https://api.cxrage.org/remove-result.php";
 
 export default function Results({ data }) {
   const [copied, setCopied] = React.useState(false);
