@@ -8,7 +8,6 @@ import Helmet from "react-helmet";
 import Results from "./pages/Results";
 
 const siteCopyrightAuthor = "Massachusetts General Hospital";
-const authors = ["Gabriel Romualdo", "Dr. Vineet Raghu"];
 const pages = [
   {
     code: "home",
@@ -100,11 +99,7 @@ function App() {
         pages={nonHiddenPages}
         pageContent={currentPage.content}
       />
-      <Footer
-        pages={nonHiddenPages}
-        copyrightAuthor={siteCopyrightAuthor}
-        authors={authors}
-      />
+      <Footer pages={nonHiddenPages} copyrightAuthor={siteCopyrightAuthor} />
     </div>
   );
 }

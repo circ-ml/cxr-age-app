@@ -1,4 +1,4 @@
-export default function Example({ pages, authors, copyrightAuthor }) {
+export default function Example({ pages, copyrightAuthor }) {
   const navigation = {
     main: pages.map((e) => ({
       name: e.title,
@@ -68,9 +68,8 @@ export default function Example({ pages, authors, copyrightAuthor }) {
           ))}
         </div>
         <p className="mt-8 text-center text-base text-gray-400">
-          &copy; {new Date().getFullYear()} {copyrightAuthor}. Built by{" "}
-          {authors.slice(0, authors.length - 1).join(", ")}, and{" "}
-          {authors[authors.length - 1]}
+          &copy; {new Date().getFullYear()} {copyrightAuthor}. Built by Gabriel
+          Romualdo and Dr. Vineet Raghu
         </p>
       </div>
     </footer>
