@@ -20,7 +20,7 @@ export default function Example({ pages, authors, copyrightAuthor }) {
       },
       {
         name: "Paper",
-        href: "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2738349",
+        href: "http://localhost:3000/#:~:text=Deep%20Learning%20to%20Assess%20Cardiovascular%20Age%20From%20Chest%20Radiographs",
         icon: (props) => (
           <svg
             fill="currentColor"
