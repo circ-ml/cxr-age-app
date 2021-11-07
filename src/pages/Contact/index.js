@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ExclamationIcon } from "@heroicons/react/solid";
-import { MailIcon, PhoneIcon } from "@heroicons/react/outline";
+import { MailIcon } from "@heroicons/react/outline";
 
 export default function Contact({ contact }) {
   const [firstName, setFirstName] = useState("");
