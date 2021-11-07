@@ -46,7 +46,7 @@ const pages = [
   {
     code: "results-",
     subtitle: "Results",
-    description: "View your results below.",
+    description: "View your Chest X-Ray Age results below.",
     title: "Results",
     hidden: true,
     prefixedHash: true,
@@ -61,7 +61,6 @@ function App() {
   };
   useEffect(() => {
     const refreshHash = () => {
-      window.scrollTo({ top: 0 });
       const hash = window.location.hash.substr(1);
       const matchingPages = pages.filter(
         (e) => e.code === hash || (e.prefixedHash && hash.startsWith(e.code))
@@ -73,9 +72,14 @@ function App() {
       }
     };
     refreshHash();
-    window.addEventListener("hashchange", refreshHash);
+    const reload = () => {
+      // Make sure to scroll to the top when page changes
+      // window.scrollTo({ top: 0, left: 0 });
+      window.location.reload();
+    };
+    window.addEventListener("hashchange", reload);
     return () => {
-      window.removeEventListener("hashchange", refreshHash);
+      window.removeEventListener("hashchange", reload);
     };
   }, [pageCode]);
   const currentPage = pages.filter((e) => e.code === pageCode)[0];

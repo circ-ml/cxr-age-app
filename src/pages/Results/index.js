@@ -1,6 +1,7 @@
 import { XCircleIcon } from "@heroicons/react/solid";
 import { useEffect, useState } from "react";
 import Loader from "../../components/Loader";
+import ResultsComponent from "../../components/Results";
 
 const makeResultsURL = (requestId) =>
   `http://cxrage.org/results/${requestId}.json`;
@@ -9,7 +10,7 @@ export default function Results() {
   const [results, setResults] = useState(null);
 
   useEffect(() => {
-    const requestId = window.location.hash.split("result-")[1];
+    const requestId = window.location.hash.split("results-")[1];
     const resultsRequestURL = makeResultsURL(requestId);
     fetch(resultsRequestURL)
       .catch(() => ({
@@ -29,15 +30,15 @@ export default function Results() {
           <div className="flex">
             <div className="flex-shrink-0">
               <XCircleIcon
-                className="h-5 w-5 text-red-400"
+                className="h-8 w-8 text-red-400"
                 aria-hidden="true"
               />
             </div>
             <div className="ml-3">
-              <h3 className="text-sm font-medium text-red-800">
+              <h3 className="text-lg font-medium text-red-800">
                 Invalid results link.
               </h3>
-              <div className="mt-2 text-sm text-red-700">
+              <div className="mt-2 text-md text-red-700">
                 <p>
                   Please check your URL and retry. Your results may have also
                   been deleted if you have viewed them before.
@@ -47,7 +48,7 @@ export default function Results() {
           </div>
         </div>
       ) : (
-        <Results data={results} />
+        <ResultsComponent data={results} />
       )}
     </div>
   );
