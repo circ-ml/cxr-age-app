@@ -26,7 +26,7 @@ export default function Upload({ onUploadComplete }) {
   return (
     <div className="relative rounded-md bg-gray-100">
       <FilePond
-        acceptedFileTypes={["image/png"]}
+        acceptedFileTypes={["image/*"]}
         files={files}
         onupdatefiles={setFiles}
         allowMultiple={false}
@@ -34,7 +34,23 @@ export default function Upload({ onUploadComplete }) {
         labelIdle='Drop a Chest X-Ray Here or <span class="filepond--label-action">Browse</span>'
         onaddfile={(error, file) => {
           if (!error) {
-            onUploadComplete(file.getFileEncodeBase64String());
+            const image = new Image();
+            image.src = file.getFileEncodeDataURL();
+
+            image.onload = () => {
+              const canvas = document.createElement("canvas");
+              const ctx = canvas.getContext("2d");
+
+              canvas.width = image.width;
+              canvas.height = image.height;
+
+              ctx.drawImage(image, 0, 0, image.width, image.height);
+
+              const imageDataURL = canvas.toDataURL();
+              const imageBase64 = imageDataURL.split(",")[1];
+
+              onUploadComplete(imageBase64);
+            };
           }
         }}
         onremovefile={(error) => {
