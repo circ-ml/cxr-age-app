@@ -32,17 +32,21 @@ export default function Contact({ contact }) {
         subject,
         message,
       };
+
+      const formData = new FormData();
+      for (const key in data) {
+        formData.append(key, data[key]);
+      }
+
       const displayInternalError = () => {
         setError(
           "An internal error occurred; please try again or contact us over email instead."
         );
       };
-      fetch("/contact", {
+      fetch("/", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
       })
         .catch(() => displayInternalError())
         .then((res) => res.json())
