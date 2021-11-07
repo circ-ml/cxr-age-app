@@ -67,8 +67,7 @@ export default function About() {
           ))}
         </ul>
         <p>
-          This application was built by Gabriel Romualdo, Yanru Chen, and Dr.
-          Vineet Raghu.
+          This application was built by Gabriel Romualdo and Dr. Vineet Raghu.
         </p>
       </div>
     </div>

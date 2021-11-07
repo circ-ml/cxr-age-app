@@ -8,7 +8,7 @@ import Helmet from "react-helmet";
 import Results from "./pages/Results";
 
 const siteCopyrightAuthor = "Massachusetts General Hospital";
-const authors = ["Gabriel Romualdo", "Yanru Chen", "Dr. Vineet Raghu"];
+const authors = ["Gabriel Romualdo", "Dr. Vineet Raghu"];
 const pages = [
   {
     code: "home",
