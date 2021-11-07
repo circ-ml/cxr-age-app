@@ -2,7 +2,12 @@ import sampleImage from "./sample-image.png";
 import { InformationCircleIcon } from "@heroicons/react/solid";
 import Upload from "../../components/Upload";
 
-export default function UploadPage({ imageURL, setImageURL, getResults }) {
+export default function UploadPage({
+  imageURL,
+  setImageURL,
+  getResults,
+  setEmail,
+}) {
   return (
     <>
       <div className="rounded-md bg-blue-50 p-4">
@@ -43,6 +48,7 @@ export default function UploadPage({ imageURL, setImageURL, getResults }) {
                 type="email"
                 name="email"
                 id="email"
+                onInput={(e) => setEmail(e.target.value)}
                 className="shadow-sm px-6 py-4 focus:ring-blue-900 focus:border-blue-900 block w-full border rounded-md text-md"
                 placeholder="you@example.com"
               />

@@ -1,21 +1,48 @@
 import { useState } from "react";
 import Loader from "../../components/Loader";
+import Results from "../../components/Results";
 import UploadPage from "./upload";
+
+const PROCESS_IMAGE_URL = "http://cxrage.org/process-image.php";
 
 export default function Home() {
   const [imageURL, setImageURL] = useState("");
+  const [email, setEmail] = useState("");
   const [stage, setStage] = useState("upload");
+  const [results, setResults] = useState("upload");
+
+  const getResults = () => {
+    const requestBody = {
+      image: imageURL,
+    };
+    if (email.length > 0) {
+      requestBody.email = email;
+    }
+    fetch(PROCESS_IMAGE_URL, {
+      method: "POST",
+      headers: {},
+      body: JSON.stringify(requestBody),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setResults(data);
+        setStage("results");
+      });
+    setStage("loading-results");
+  };
 
   return (
     <div className="p-6 md:p-12">
       {stage === "upload" ? (
         <UploadPage
           imageURL={imageURL}
-          setImageURL={setImageURL}
-          getResults={() => setStage("loading-results")}
+          setEmail={(email) => setEmail(email)}
+          setImageURL={(url) => setImageURL(url)}
+          getResults={() => getResults()}
         />
       ) : null}
       {stage === "loading-results" ? <Loader /> : null}
+      {stage === "results" ? <Results data={results} /> : null}
     </div>
   );
 }

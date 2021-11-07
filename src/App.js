@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import React, { useState, useEffect } from "react";
 import Helmet from "react-helmet";
+import Results from "./pages/Results";
 
 const siteCopyrightAuthor = "Massachusetts General Hospital";
 const authors = ["Gabriel Romualdo", "Yanru Chen", "Dr. Vineet Raghu"];
@@ -42,6 +43,15 @@ const pages = [
       />
     ),
   },
+  {
+    code: "results-",
+    subtitle: "Results",
+    description: "View your results below.",
+    title: "Results",
+    hidden: true,
+    prefixedHash: true,
+    content: <Results />,
+  },
 ];
 
 function App() {
@@ -53,8 +63,11 @@ function App() {
     const refreshHash = () => {
       window.scrollTo({ top: 0 });
       const hash = window.location.hash.substr(1);
-      if (pages.map((e) => e.code).includes(hash)) {
-        setPageCode(hash);
+      const matchingPages = pages.filter(
+        (e) => e.code === hash || (e.prefixedHash && hash.startsWith(e.code))
+      );
+      if (matchingPages.length > 0) {
+        setPageCode(matchingPages[0].code);
       } else {
         setPageHash(pageCode);
       }
@@ -66,26 +79,25 @@ function App() {
     };
   }, [pageCode]);
   const currentPage = pages.filter((e) => e.code === pageCode)[0];
+  const nonHiddenPages = pages.filter((e) => !e.hidden);
   return (
     <div>
       <Helmet>
-        <meta charSet="utf-8" />
         <title>
           CXR-Age —{" "}
           {currentPage.homepage
             ? "Detect Biological Age From Chest Imaging"
             : currentPage.subtitle}
         </title>
-        <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
       <Container
         setPage={(pageCode) => setPageHash(pageCode)}
         currentPage={currentPage}
-        pages={pages}
+        pages={nonHiddenPages}
         pageContent={currentPage.content}
       />
       <Footer
-        pages={pages}
+        pages={nonHiddenPages}
         copyrightAuthor={siteCopyrightAuthor}
         authors={authors}
       />
