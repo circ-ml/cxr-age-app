@@ -8,11 +8,15 @@ export default function Container({
   currentPage,
   pageContent,
 }) {
-  const ctaURL = `#${pages[0].code}`;
+  const ctaCode = pages[0].code;
+  const navigate = (code) => {
+    window.location.hash = code;
+    window.location.reload();
+  };
   const navigation = pages.map((e) => ({
     name: e.title,
     navigate: () => {
-      setPage(e.code);
+      navigate(e.code);
     },
   }));
   const logoIcon = (
@@ -140,12 +144,12 @@ export default function Container({
                 </div>
                 <div className="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
                   <span className="inline-flex rounded-md shadow">
-                    <a
-                      href={ctaURL}
+                    <button
+                      onClick={() => navigate(ctaCode)}
                       className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:text-blue-500"
                     >
                       Upload a Chest X-Ray
-                    </a>
+                    </button>
                   </span>
                 </div>
               </nav>
@@ -188,12 +192,12 @@ export default function Container({
                       </button>
                     ))}
                   </div>
-                  <a
-                    href={ctaURL}
+                  <button
+                    onClick={() => navigate(ctaCode)}
                     className="block w-full px-5 py-3 text-center font-medium text-blue-600 bg-gray-50 hover:bg-gray-100 hover:text-blue-700"
                   >
                     Upload a Chest X-Ray
-                  </a>
+                  </button>
                 </div>
               </Popover.Panel>
             </Transition>
