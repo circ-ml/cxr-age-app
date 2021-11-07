@@ -10,8 +10,11 @@ export default function Container({
 }) {
   const ctaCode = pages[0].code;
   const navigate = (code) => {
+    const curHash = window.location.hash.substr(1);
     window.location.hash = code;
-    window.location.reload();
+    if (curHash === code) {
+      window.location.reload();
+    }
   };
   const navigation = pages.map((e) => ({
     name: e.title,
