@@ -37,6 +37,7 @@ export default function Contact({ contact }) {
       for (const key in data) {
         formData.append(key, data[key]);
       }
+      formData.append("form-name", "contact");
 
       const displayInternalError = () => {
         setError(
