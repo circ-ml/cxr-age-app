@@ -27,6 +27,13 @@ export default function UploadPage({
                 PHI. The model was also trained on images that were similar in
                 appearance.
               </p>
+              <p className="mt-2 text-blue-700">
+                <strong>
+                  This model is only intended to be applied to individuals 50-80
+                  years of chronologic age. This model is also not currently
+                  intended for clinical use or medical decision-making.
+                </strong>
+              </p>
               {/* <p className="mt-2 text-blue-700">
                 <strong>
                   Patient data and images are not permanently stored on our

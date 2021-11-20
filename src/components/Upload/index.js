@@ -31,7 +31,7 @@ export default function Upload({ onUploadComplete }) {
         onupdatefiles={setFiles}
         allowMultiple={false}
         name="files"
-        labelIdle='Drop a Chest X-Ray Here or <span class="filepond--label-action">Browse</span>'
+        labelIdle='Drop an Image (.png, .jpg, etc) of a Chest X-Ray or <span class="filepond--label-action">Browse</span>'
         onaddfile={(error, file) => {
           if (!error) {
             const image = new Image();
