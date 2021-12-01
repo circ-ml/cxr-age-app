@@ -10,9 +10,11 @@ import React from "react";
 
 const DELETE_RESULT_URL = "https://api.cxrage.org/remove-result.php";
 
-export default function Results({ data }) {
+export default function Results({ data, exampleCXRId }) {
   const [copied, setCopied] = React.useState(false);
   const [deleted, setDeleted] = React.useState(false);
+
+  const isExampleCXR = exampleCXRId === data.requestID;
 
   const deleteResults = () => {
     fetch(`${DELETE_RESULT_URL}?request_id=${data.requestID}`, {
@@ -97,18 +99,20 @@ export default function Results({ data }) {
             />
             Upload Another Chest X-Ray
           </button>
-          <button
-            type="button"
-            className={buttonClasses + "mt-3"}
-            onClick={() => deleteResults()}
-            disabled={deleted}
-            style={
-              deleted ? { pointerEvents: "none", touchAction: "none" } : {}
-            }
-          >
-            <TrashIcon className="mr-3 -ml-1 h-5 w-5" aria-hidden="true" />
-            {deleted ? "Results Deleted" : "Delete Results From Our Servers"}
-          </button>
+          {isExampleCXR ? null : (
+            <button
+              type="button"
+              className={buttonClasses + "mt-3"}
+              onClick={() => deleteResults()}
+              disabled={deleted}
+              style={
+                deleted ? { pointerEvents: "none", touchAction: "none" } : {}
+              }
+            >
+              <TrashIcon className="mr-3 -ml-1 h-5 w-5" aria-hidden="true" />
+              {deleted ? "Results Deleted" : "Delete Results From Our Servers"}
+            </button>
+          )}
         </div>
       </div>
       <div className={columnClasses}>

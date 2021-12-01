@@ -6,7 +6,7 @@ import ResultsComponent from "../../components/Results";
 const makeResultsURL = (requestId) =>
   `https://api.cxrage.org/results/${requestId}.json`;
 
-export default function Results() {
+export default function Results({ exampleCXRId }) {
   const [results, setResults] = useState(null);
 
   useEffect(() => {
@@ -48,7 +48,7 @@ export default function Results() {
           </div>
         </div>
       ) : (
-        <ResultsComponent data={results} />
+        <ResultsComponent exampleCXRId={exampleCXRId} data={results} />
       )}
     </div>
   );

@@ -5,7 +5,7 @@ import UploadPage from "./upload";
 
 const PROCESS_IMAGE_URL = "https://api.cxrage.org/process-image.php";
 
-export default function Home() {
+export default function Home({ exampleCXRId }) {
   const [imageURL, setImageURL] = useState("");
   const [email, setEmail] = useState("");
   const [stage, setStage] = useState("upload");
@@ -42,7 +42,9 @@ export default function Home() {
         />
       ) : null}
       {stage === "loading-results" ? <Loader /> : null}
-      {stage === "results" ? <Results data={results} /> : null}
+      {stage === "results" ? (
+        <Results exampleCXRId={exampleCXRId} data={results} />
+      ) : null}
     </div>
   );
 }

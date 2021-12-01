@@ -7,6 +7,7 @@ import React, { useState, useEffect } from "react";
 import Helmet from "react-helmet";
 import Results from "./pages/Results";
 
+const exampleCXRId = "61a7454948f62";
 const siteCopyrightAuthor = "Massachusetts General Hospital";
 const pages = [
   {
@@ -16,7 +17,7 @@ const pages = [
     description:
       "Upload a chest x-ray of an individual and get a measure of their biological age.",
     homepage: true,
-    content: <Home />,
+    content: <Home exampleCXRId={exampleCXRId} />,
   },
   {
     code: "about",
@@ -49,7 +50,7 @@ const pages = [
     title: "Results",
     hidden: true,
     prefixedHash: true,
-    content: <Results />,
+    content: <Results exampleCXRId={exampleCXRId} />,
   },
 ];
 
