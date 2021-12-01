@@ -39,6 +39,7 @@ export default function Home({ exampleCXRId }) {
           setEmail={(email) => setEmail(email)}
           setImageURL={(url) => setImageURL(url)}
           getResults={() => getResults()}
+          exampleCXRId={exampleCXRId}
         />
       ) : null}
       {stage === "loading-results" ? <Loader /> : null}

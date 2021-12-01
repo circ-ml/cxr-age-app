@@ -7,6 +7,7 @@ export default function UploadPage({
   setImageURL,
   getResults,
   setEmail,
+  exampleCXRId,
 }) {
   return (
     <>
@@ -66,25 +67,36 @@ export default function UploadPage({
             <div className="flex">
               <div>
                 <p className="text-gray-700">
-                  Click below to calculate the biological age of the patient
-                  with the uploaded Chest X-Ray. If you entered your email
-                  address, you will receive an email with the results.
+                  Click to calculate the biological age of the patient with the
+                  uploaded x-ray. If you entered an email, you'll receive an
+                  email with results.
                 </p>
               </div>
             </div>
           </div>
-          <button
-            disabled={imageURL.length === 0}
-            className={
-              "mt-3 w-full inline-flex items-center justify-center px-4 py-3 border border-transparent shadow-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 " +
-              (imageURL.length === 0
-                ? "text-gray-500 bg-gray-100 cursor-default"
-                : "text-white bg-blue-600 hover:bg-blue-700")
-            }
-            onClick={() => getResults()}
-          >
-            Get Results &nbsp;&rarr;
-          </button>
+          <div>
+            <button
+              disabled={imageURL.length === 0}
+              className={
+                "mt-3 w-full inline-flex items-center justify-center px-4 py-3 border border-transparent shadow-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 " +
+                (imageURL.length === 0
+                  ? "text-gray-500 bg-gray-100 cursor-default"
+                  : "text-white bg-blue-600 hover:bg-blue-700")
+              }
+              onClick={() => getResults()}
+            >
+              Get Results &nbsp;&rarr;
+            </button>
+            <p className="text-center text-gray-500 text-sm mt-2">
+              or, view an{" "}
+              <a
+                href={`/#results-${exampleCXRId}`}
+                className="text-blue-500 hover:underline pointer"
+              >
+                example result
+              </a>
+            </p>
+          </div>
         </div>
         <div className="flex-1 hidden md:block">
           <p className="text-center font-medium mb-1 text-gray-700">
