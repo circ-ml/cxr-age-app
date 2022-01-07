@@ -3,7 +3,7 @@ export default function About() {
     { title: "CXR-Age Github", url: "https://github.com/vineet1992/CXR-Age" },
     {
       title:
-        "Paper – Deep Learning to Assess Cardiovascular Age From Chest Radiographs",
+        "Paper – Deep Learning to Assess Biological Age From Chest Radiographs",
       url: "https://www.ahajournals.org/doi/abs/10.1161/circ.142.suppl_3.313",
     },
     {
