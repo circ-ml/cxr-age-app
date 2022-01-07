@@ -3,13 +3,18 @@ export default function About() {
     { title: "CXR-Age Github", url: "https://github.com/vineet1992/CXR-Age" },
     {
       title:
-        "Deep Learning to Assess Cardiovascular Age From Chest Radiographs",
+        "Paper – Deep Learning to Assess Cardiovascular Age From Chest Radiographs",
       url: "https://www.ahajournals.org/doi/abs/10.1161/circ.142.suppl_3.313",
     },
     {
       title:
-        "Deep Learning to Assess Long-term Mortality From Chest Radiographs",
+        "Paper – Deep Learning to Assess Long-term Mortality From Chest Radiographs",
       url: "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2738349",
+    },
+    {
+      title:
+        "Presentation at the American Heart Association – Deep Learning to Assess Cardiovascular Age From Chest Radiographs",
+      url: "https://pubmed.ncbi.nlm.nih.gov/33744131/",
     },
     {
       title:
